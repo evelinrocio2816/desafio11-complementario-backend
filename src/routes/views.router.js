@@ -19,5 +19,8 @@ router.get("/password", viewsController.renderChangePassword);
 router.get("/confirmation-env", viewsController.renderConfirmation);
 router.get("/panel-premium", viewsController.renderPremium);
 
+// Ruta para obtener los detalles del producto
+router.get('/products/:pid', viewsController.renderProductDetails);
+
 module.exports = router;
 

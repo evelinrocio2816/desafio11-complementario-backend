@@ -74,6 +74,22 @@ class ProductController {
             res.status(500).json({ error: "Error interno del servidor al eliminar el producto" }); 
         }
     }
+    //funcion  para  ir a detalles
+
+    async getProductDetails(req, res) {
+        const productId = req.params.pid;
+        const cartId = req.user.cart;  // Asumiendo que el ID del carrito está en el usuario autenticado
+        try {
+            const product = await productRepository.getProductsById(productId);
+            if (!product) {
+                return res.status(404).json({ error: "Producto no encontrado" });
+            }
+            res.render('productDetails', { product, cartId });
+        } catch (error) {
+            logger.error("Error al obtener los detalles del producto:", error);
+            res.status(500).json({ error: "Error interno del servidor" });
+        }
+    }
 
     async mockingProducts(req, res){
         const products = [];

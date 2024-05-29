@@ -478,3 +478,24 @@ h3 {
 .group-btn button:focus {
   outline: none; /* Quita el contorno al enfocar */
 }
+
+/*ESTILO DE VISTA DE DETALLES*/
+
+#addToCartForm{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 5px;
+
+}
+.product-details {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

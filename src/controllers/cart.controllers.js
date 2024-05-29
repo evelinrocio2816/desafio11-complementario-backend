@@ -60,7 +60,8 @@ class CartController {
            const cartID = (req.user.cart).toString()
           logger.info("Product added to cart. Cart ID:", cartID);
 
-            res.redirect(`/carts/${cartID}`)
+           // res.redirect(`/carts/${cartID}`)
+            res.redirect(`/products/${productId}`);
     
         } catch (error) {
            logger.error("Error al añadir producto al carrito:", error);

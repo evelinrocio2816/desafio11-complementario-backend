@@ -10,11 +10,9 @@
     <p>{{description}}</p>
     <p>Price: ${{price}}</p>
     <p>Category: {{category}} </p>
-    <form class="formBtnProducts" action="/api/carts/{{../cartId}}/product/{{id}}" method="POST">
-        <button type="submit">Agregar al Carrito</button>
-    </form>
-   
+  <button class="formBtnProducts"><a href="/products/{{id}}">ver Detalles</a></button>
     </div>
+    
 {{/each}}
 
 </div>

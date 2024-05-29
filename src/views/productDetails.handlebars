@@ -1,0 +1,22 @@
+<!-- productDetails.handlebars -->
+<div class="product-details">
+    <img src="{{image}}">
+    <h1>{{title}}</h1>
+    <p>{{description}}</p>
+    <p>Price: ${{price}}</p>
+    <p>Category: {{category}}</p>
+    <form id="addToCartForm" action="/api/carts/{{cartId}}/product/{{product.id}}" method="POST"> 
+  
+   <div class="container-counter"></div>
+        <button class="btn-counter" type="button" id="decrementButton">-</button> 
+        <input  class="btn-counter"type="text" id="quantity" name="quantity" value="1" readonly>
+        <button class="btn-counter" type="button" id="incrementButton">+</button>
+    </div>
+    <div>
+    </form>
+</div>
+<form action="/api/carts/{{../cartId}}/product/{{id}}" method="POST">
+        <button type="submit">Agregar al Carrito</button>
+    </form>
+ <a  href="/products"> Volver a Productos</a>
+<script src="/js/counter.js"></script>
