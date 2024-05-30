@@ -27,7 +27,7 @@ const decrementButton = document.getElementById('decrementButton');
         })
         .then(response => {
                 if (response.ok) {
-                  return ;
+                  return window.location.href= `/carts/${cartId}`;
                 }
                 throw new Error('Error en la solicitud POST');
             })
