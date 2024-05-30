@@ -48,21 +48,35 @@ class ViewsController {
         }
     }
 //Vista de detalles de productos
- async renderProductDetails(req, res) {
-        const productId = req.params.pid;
-        try {
-            // Aquí obtienes los detalles del producto según el ID
-            const product = await ProductModel.findById(productId);
-            if (!product) {
-                return res.status(404).json({ error: "Producto no encontrado" });
-            }
-
-            res.render("productDetails", { product });
-        } catch (error) {
-            logger.error("Error al obtener los detalles del producto:", error);
-            res.status(500).json({ error: "Error interno del servidor" });
-        }
-    }
+async renderProductDetails(req, res) {
+  const productId = req.params.pid;
+  try {
+      // Aquí obtienes los detalles del producto según el ID
+      const product = await ProductModel.findById(productId);
+      if (!product) {
+          return res.status(404).json({ error: "Producto no encontrado" });
+      }
+     res.render("productDetails", {
+        product:{
+          id:product._id.toString(),
+          title: product.title,
+          price: product.price,
+          description: product.description,
+          stock: product.stock,
+          image: product.image,
+          category: product.category,
+          code: product.code,
+          status: product.status,
+        thumbnails: product.thumbnails,
+        owner: product.owner
+        },
+       cartId:req.user.cart.toString()
+      });
+  } catch (error) {
+      logger.error("Error al obtener los detalles del producto:", error);
+      res.status(500).json({ error: "Error interno del servidor" });
+  }
+}
     async renderCart(req, res) {
         const cartId = req.params.cid;
         try {

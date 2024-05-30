@@ -15,3 +15,24 @@ const decrementButton = document.getElementById('decrementButton');
         quantity++;
         quantityInput.value = quantity;
     });
+
+    function postProductToCart(cartId, productId) {
+        const quantity = document.getElementById("quantity").value
+        fetch(`/api/carts/${cartId}/product/${productId}`, {
+           method: 'POST',
+            headers: {
+               'Content-Type': 'application/json'
+            },
+          body: JSON.stringify({quantity:quantity})
+        })
+        .then(response => {
+                if (response.ok) {
+                  return ;
+                }
+                throw new Error('Error en la solicitud POST');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+    }

@@ -42,7 +42,7 @@ class CartController {
     async addProductToCart(req, res) {
         const cartId = req.params.cid;
         const productId = req.params.pid;
-        const quantity = req.body.quantity || 1;
+        const quantity = Number(req.body.quantity) || 1;
         const userId = req.user._id;
         try {
 
