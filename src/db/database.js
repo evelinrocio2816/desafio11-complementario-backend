@@ -20,11 +20,11 @@ class BaseDatos {
         }
     static getInstance(){
         if( this.#instance){
-            console.log("Conexion Previa");
+           logger.info("Conexion Previa");
             return this.#instance
         }
         this.#instance = new BaseDatos()
-            console.log("Conexion Exitosa!!");
+            logger.info("Conexion Exitosa!!");
         return this.#instance
     }
 }
