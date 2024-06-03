@@ -2,6 +2,7 @@
 const mongoose = require("mongoose");
 const { mongo_url } = require("../config/config");
 const { log } = require("winston");
+const logger = require("../utils/loggers");
 
 
 class BaseDatos {
@@ -10,11 +11,11 @@ class BaseDatos {
     constructor() {
         mongoose.connect(mongo_url)
             .then(() => {
-                log.info("Conexión exitosa a MongoDB");
+                logger.info("Conexión exitosa a MongoDB");
             })
             .catch((error) => {
-                log.error("Error al conectar a MongoDB:", error);
-                // En este punto, podrías manejar el error de conexión de alguna manera apropiada para tu aplicación
+                logger.error("Error al conectar a MongoDB:", error);
+                
             });
         }
     static getInstance(){
