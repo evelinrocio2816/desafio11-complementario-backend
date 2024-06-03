@@ -8,7 +8,7 @@ class BaseDatos {
     static #instance;
 
     constructor() {
-        mongoose.connect(mongo_url, { useNewUrlParser: true, useUnifiedTopology: true })
+        mongoose.connect(mongo_url)
             .then(() => {
                 log.info("Conexión exitosa a MongoDB");
             })
