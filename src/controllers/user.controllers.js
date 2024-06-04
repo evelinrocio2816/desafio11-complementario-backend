@@ -65,20 +65,15 @@ class UserController {
     const { email, password } = req.body;
     try {
       const userFound = await UserModel.findOne({ email });
-
       logger.info("Usuario encontrado en el inicio de sesión:", userFound);
-
       if (!userFound) {
         return res.status(401).send("Usuario no válido");
       }
-
       const isValid = isValidPassword(password, userFound);
       logger.info("La contraseña es válida:", isValid);
-
       if (!isValid) {
         return res.status(401).send("Contraseña incorrecta");
       }
-
       const token = jwt.sign({ user: userFound }, "coderhouse", {
         expiresIn: "1h",
       });

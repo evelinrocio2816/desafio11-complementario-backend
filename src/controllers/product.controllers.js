@@ -55,6 +55,7 @@ class ProductController {
            logger.info("Actualizando producto con ID:", id);
             const result = await productRepository.updateProduct(id, updatedProduct);
            logger.info("Producto actualizado exitosamente:", result);
+           console.log(result);
             res.json(result);
         } catch (error) {
            logger.error("Error al actualizar el producto:", error);

@@ -59,7 +59,7 @@ app.use("/", TestRouter)
 
 
 const httpServer = app.listen(PORT, () => {
-    logger.info(`Servidor escuchando en el Puerto: https://localhost:${PORT}`);
+    logger.info(`Servidor escuchando en el Puerto: http://localhost:${PORT}`);
 });
 module.exports = app;
 //Websockets: 
