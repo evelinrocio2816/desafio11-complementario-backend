@@ -1,3 +1,5 @@
+const logger = require("../../utils/loggers");
+
 const decrementButton = document.getElementById('decrementButton');
     const incrementButton = document.getElementById('incrementButton');
     const quantityInput = document.getElementById('quantity');
@@ -32,7 +34,7 @@ const decrementButton = document.getElementById('decrementButton');
                 throw new Error('Error en la solicitud POST');
             })
             .catch(error => {
-                console.error('Error:', error);
+                logger.error('Error:', error);
             });
 
     }

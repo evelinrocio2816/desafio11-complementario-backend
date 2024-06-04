@@ -1,3 +1,5 @@
+const logger = require("../../utils/loggers.js")
+
 function deleteProduct(cartId, productId) {
     fetch(`/api/carts/${cartId}/product/${productId}`, {
         method: 'DELETE'
@@ -9,7 +11,7 @@ function deleteProduct(cartId, productId) {
             location.reload();
         })
         .catch(error => {
-            console.error('Error:', error);
+           logger.error('Error:', error);
         });
 }
 
@@ -24,7 +26,7 @@ function emptyCart(cartId) {
             location.reload();
         })
         .catch(error => {
-            console.error('Error:', error);
+           logger.error('Error:', error);
         });
 }
 
@@ -39,6 +41,6 @@ function finalizePurchase(cartId) {
             location.reload();
         })
         .catch(error => {
-            console.error('Error:', error);
+           logger.error('Error:', error);
         });
 }
