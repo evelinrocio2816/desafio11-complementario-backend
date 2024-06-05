@@ -2,6 +2,8 @@ const socket = require("socket.io");
 const ProductRepository = require("../repositories/product.repository.js");
 const productRepository = new ProductRepository(); 
 const MessageModel = require("../models/message.models.js");
+const logger = require("../utils/loggers.js");
+
 
 class SocketManager {
     constructor(httpServer) {
